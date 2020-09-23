@@ -12,3 +12,9 @@ eg: node delFile ./imgs/repilt
 # 删除文件夹下所有子文件
 
  eg: node delFile ./imgs false
+
+# ./ramdImg
+
+此文件下自动生成文件名的文件夹
+
+ eg: node delFile ./ramdImg false
