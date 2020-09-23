@@ -4,8 +4,8 @@ var path = require('path')
 var fs = require('fs')
 
 var argv = process.argv
-var url = argv[2]
-var selector = argv[3]
+var url = argv[2] || 'http://jandan.net/ooxx'
+var selector = argv[3] || ".commentlist .text p img"
 var folderName = argv[4] || Math.random().toString(36).substr(2, 8)
 var directory = `imgs/${folderName}`
 fs.mkdirSync(directory)
