@@ -8,7 +8,7 @@ var argv = process.argv
 var url = argv[2] || 'http://jandan.net/ooxx'
 var selector = argv[3] || ".commentlist .text p img"
 var folderName = argv[4] || Math.random().toString(36).substr(2, 8)
-var directory = `imgs/${folderName}`
+var directory = argv[4] ? `imgs/${folderName}` : `ramdImg/${folderName}`
 fs.mkdirSync(directory)
 
 function parseImgs(content) {
@@ -42,7 +42,9 @@ async function fetchImgs(url) {
   
 
 setTimeout(()=>{
-	cmd.run('node index http://jandan.net/ooxx ".commentlist .text p img"');
-},1000*60)  
+	var cmds = `node index ${url} "${selector}"` + ''
+	console.log(cmds);
+	cmd.run(cmds);
+},1000)  
 fetchImgs(url)
 .catch(error => console.log('error',error))
