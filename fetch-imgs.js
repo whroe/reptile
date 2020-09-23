@@ -2,6 +2,7 @@ var fetch = require('node-fetch')
 var cheerio = require('cheerio')
 var path = require('path')
 var fs = require('fs')
+var cmd=require('node-cmd');
 
 var argv = process.argv
 var url = argv[2] || 'http://jandan.net/ooxx'
@@ -38,6 +39,10 @@ async function fetchImgs(url) {
 	imgs.forEach(saveImg)
 	console.log(res , imgs);
 }
+  
 
+setTimeout(()=>{
+	cmd.run('node index http://jandan.net/ooxx ".commentlist .text p img"');
+},1000*60)  
 fetchImgs(url)
 .catch(error => console.log('error',error))

@@ -15,6 +15,7 @@
   "dependencies": {
     "async-to-gen": "^1.0.5",
     "cheerio": "^0.20.0",
+    "node-cmd": "^3.0.0",
     "node-fetch": "^1.6.0"
   }
 }
